@@ -1,0 +1,71 @@
+{
+    "name": "rhode-code-helpers",
+    "displayName": "RhodeCode Helpers",
+    "description": "Makes it easier to work with RhodeCode repositories",
+    "version": "0.0.1",
+    "publisher": "trifork-aalborg",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openPullRequest",
+        "onCommand:extension.createPullRequest"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openPullRequest",
+                "title": "Show Pull Request",
+                "category": "RhodeCode"
+            },
+            {
+                "command": "extension.createPullRequest",
+                "title": "Create Pull Request",
+                "category": "RhodeCode"
+            }
+        ],
+        "configuration": [
+            {
+                "title": "RhodeCode Configuration",
+                "properties": {
+                    "rhodecode.serverurl": {
+                        "title": "Your rhodecode server URL",
+                        "type": "string",
+                        "default": ""
+                    },
+                    "rhodecode.apikey": {
+                        "title": "Your RhodeCode authkey",
+                        "type": "string",
+                        "default": ""
+                    },
+                    "rhodecode.repoid": {
+                        "title": "The repository to use. This should be a workspace setting",
+                        "type": "string",
+                        "default": ""
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "axios": "^0.18.0"
+    }
+}
