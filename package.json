@@ -4,6 +4,10 @@
     "description": "Makes it easier to work with RhodeCode repositories",
     "version": "0.0.1",
     "publisher": "trifork-aalborg",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dimsedane/vscode-rhodecode.git"
+    },
     "engines": {
         "vscode": "^1.22.0"
     },
